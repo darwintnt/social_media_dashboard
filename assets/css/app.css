@@ -10,17 +10,25 @@
 
   /* Light Theme */
   --toggle-light: hsl(230, 22%, 74%);
-  --very-pale-blue: hsl(225, 100%, 98%); /* (Top BG Pattern) */
-  --light-grayish-blue: hsl(227, 47%, 96%); /* (Card BG) */
-  --dark-grayish-blue: hsl(228, 12%, 44%); /* (Text) */
-  --very-dark-blue: hsl(230, 17%, 14%); /* (Text) */
+  --very-pale-blue: hsl(225, 100%, 98%);
+  /* (Top BG Pattern) */
+  --light-grayish-blue: hsl(227, 47%, 96%);
+  /* (Card BG) */
+  --dark-grayish-blue: hsl(228, 12%, 44%);
+  /* (Text) */
+  --very-dark-blue: hsl(230, 17%, 14%);
+  /* (Text) */
 
   /* Dark Theme*/
   --toggle-dark: linear-gradient(to right, hsl(210, 78%, 56%) to hsl(146, 68%, 55%));
-  --veryDarkBlue: hsl(230, 17%, 14%); /* (BG) */
-  --veryDarkBlue: hsl(232, 19%, 15%); /* (Top BG Pattern) */
-  --darkDesaturatedBlue: hsl(228, 28%, 20%); /* (Card BG) */
-  --desaturatedBlue: hsl(228, 34%, 66%); /* (Text) */
+  --veryDarkBlue: hsl(230, 17%, 14%);
+  /* (BG) */
+  --veryDarkBlue: hsl(232, 19%, 15%);
+  /* (Top BG Pattern) */
+  --darkDesaturatedBlue: hsl(228, 28%, 20%);
+  /* (Card BG) */
+  --desaturatedBlue: hsl(228, 34%, 66%);
+  /* (Text) */
 }
 
 *,
@@ -40,30 +48,41 @@ body {
   font-size: 14px;
 }
 
-.container {
-  width: 80vw;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+.grid {
+  display: grid;
+  grid-row-gap: 25px;
 }
 
-.big__card {
-  background: var(--light-grayish-blue);
-  width: 250px;
-  padding: 20px;
-  border-radius: 7px;
-  text-align: center;
-  cursor: pointer;
+.wrap {
+  padding: 0 30px;
 }
 
-.medium__card {
+.header {
+  background: var(--very-pale-blue);
+  border-radius: 0 0 20px 20px;
+  padding-top: 2.5em;
+  padding-bottom: 160px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.top__section {
+  margin-top: -50px;
+  margin-bottom: 40px;
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
+.card {
   background: var(--light-grayish-blue);
-  width: 250px;
-  padding: 23px;
-  border-radius: 7px;
+  border-radius: 5px;
   text-align: center;
   cursor: pointer;
+  padding: 32px 20px 25px 20px;
+  position: relative;
+  transition: background 0.3s;
 }
 
 .big__card__social {
@@ -101,24 +120,27 @@ body {
   display: inline-block;
   color: var(--lime-green);
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card__account {
   margin-left: 10px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: bold;
   color: var(--dark-grayish-blue)
 }
 
 .big__card__value {
-  font-size: 3em;
+  font-size: 3.5em;
   color: var(--very-dark-blue)
 }
 
 .big__card__title {
-  font-size: 1em;
+  font-size: .8em;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   color: var(--dark-grayish-blue)
 }
 
@@ -127,14 +149,33 @@ body {
   display: inline-block;
   color: var(--lime-green);
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.global__resume {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
+.big__card__today img,
+.medium__card__today img {
+  margin-right: 5px;
+}
+
+.is-down {
+  color: var(--bright-red);
+}
+
+
+.title {
+  font-size: 24px;
+}
+
+.title__alt {
+  color: var(--dark-grayish-blue);
+  font-size: 24px;
+}
+
+.sub__title {
+  font-weight: 700;
+  color: var(--dark-grayish-blue)
 }
 
 .border-facebook {
@@ -153,12 +194,8 @@ body {
   border-top: 4px solid var(--youtube);
 }
 
-.big__card:hover {
-  background: var(--toggle-light);
-}
-
-.medium__card:hover {
-  background: var(--toggle-light);
+.card:hover {
+  background: #E0E2F0;
 }
 
 .mt-2 {
@@ -169,16 +206,39 @@ body {
   margin-bottom: 1.3em;
 }
 
-@media screen and (min-width: 1440px) {
-  .container {
-    width: 60vw;
+.mb-test {
+  margin-bottom: 3em;
+}
+
+.mb-test-1 {
+  margin-bottom: 1em;
+}
+
+.pv-test {
+  padding: 2em 0 3em 0;
+}
+
+.fondo {
+  height: 30vh;
+  background: var(--light-grayish-blue);
+}
+
+@media screen and (min-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 25px;
+  }
+
+  .wrap {
+    max-width: 1440px;
+    margin: auto;
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (min-width: 1240px) {
 
-  .big__card, .medium__card {
-    width: 100vw;
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 25px;
   }
-
 }
